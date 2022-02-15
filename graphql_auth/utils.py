@@ -5,7 +5,6 @@ from django.conf import settings as django_settings
 from django.core.signing import BadSignature
 
 from .exceptions import TokenScopeError
-warnings.simplefilter("once")
 
 
 def get_token(user, action, **kwargs):
