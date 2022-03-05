@@ -1,6 +1,7 @@
 import graphene
 import graphql_jwt
 
+from graphene.types.generic import GenericScalar
 from .bases import RelayMutationMixin, DynamicInputMixin
 from .mixins import (
     RegisterMixin,
