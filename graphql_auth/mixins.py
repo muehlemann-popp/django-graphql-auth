@@ -487,12 +487,9 @@ class PasswordChangeMixin(Output):
 
     form = PasswordChangeForm
 
-    @classmethod
-    def Field(cls, *args, **kwargs):
-        if using_refresh_tokens():
-            cls._meta.fields["refresh_token"] = graphene.Field(graphene.String)
-        cls._meta.fields["token"] = graphene.Field(graphene.String)
-        return super().Field(*args, **kwargs)
+    token = graphene.String()
+    refresh_token = graphene.String() if using_refresh_tokens() else None
+
 
     @classmethod
     @token_auth
